@@ -1,0 +1,7 @@
+@import 'styles/consts.scss';
+
+:export {
+  @each $key, $value in $colors {
+    #{unquote($key)}: $value;
+  }
+}
