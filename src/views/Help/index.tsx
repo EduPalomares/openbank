@@ -1,5 +1,5 @@
 import useToggle from 'helpers/hooks/useToggle';
-import Icon from 'components/Icon/icon';
+import Icon from 'components/Icon';
 
 import OpenbankLogo from 'assets/img/key_openbank.png';
 import Step1 from './ProductInformation';

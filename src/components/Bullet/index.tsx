@@ -1,5 +1,6 @@
 import { bool, string, InferProps } from 'prop-types';
 import { createUseStyles, useTheme } from 'react-jss';
+import { Theme } from 'styles/theme';
 import triangle from 'assets/img/triangle.png';
 
 const propTypes = { active: bool, text: string.isRequired };
@@ -8,7 +9,7 @@ const defaultPropTypes = { active: false };
 
 type Props = InferProps<typeof propTypes>;
 
-const useStyles = createUseStyles((theme: any) => ({
+const useStyles = createUseStyles((theme: Theme) => ({
   bullet: {
     height: '100%',
     display: 'flex',
@@ -31,17 +32,17 @@ const useStyles = createUseStyles((theme: any) => ({
     '&.active span': {
       width: '35px',
       height: '35px',
-
-      backgroundColor: theme.secondary
+      backgroundColor: theme.secondary,
+      boxShadow: '0px 0px 15px #888888;'
     },
 
     '&.active:after': {
       content: '""',
       width: '22px',
-      height: '11px',
+      height: '9px',
       position: 'absolute',
       left: '7px',
-      bottom: '-3px',
+      bottom: '0',
       background: 'url(' + triangle + ') center/auto 100% no-repeat'
     }
   }

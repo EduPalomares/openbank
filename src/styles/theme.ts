@@ -7,3 +7,5 @@ export const theme = {
   secondary: consts['secondary-color'],
   terciary: consts['terciary-color']
 };
+
+export type Theme = typeof theme;

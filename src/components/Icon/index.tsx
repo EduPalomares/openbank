@@ -1,5 +1,5 @@
 import { string, bool, object, func, oneOf, InferProps } from 'prop-types';
-import './icon.scss';
+import { createUseStyles } from 'react-jss';
 
 const propTypes = {
   /** Additional Classes */
@@ -27,13 +27,29 @@ const defaultPropTypes = {
 
 type Props = InferProps<typeof propTypes>;
 
+const useStyles = createUseStyles(() => ({
+  icon: {
+    display: 'inline-flex',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'auto 100%',
+    backgroundPosition: 'center',
+    '&.primary': {
+      filter: 'invert(22%) sepia(65%) saturate(7496%) hue-rotate(334deg) brightness(96%) contrast(117%)'
+    },
+    '&.secondary': {
+      filter: 'invert(12%) sepia(20%) saturate(6880%) hue-rotate(181deg) brightness(95%) contrast(102%)'
+    }
+  }
+}));
+
 const Icon = (props: Props) => {
   const { hidden, className, id, name, onClick, style, size } = props;
+  const css = useStyles();
 
   return (
     <>
       <div
-        className={`c-icon ${onClick ? 'pointer' : ''} ${name} ${className ? className : ''}`}
+        className={`${css.icon} ${onClick ? 'pointer' : ''} ${name} ${className ? className : ''}`}
         {...(hidden && { hidden })}
         {...(id && { id })}
         {...(onClick && { onClick: onClick })}
