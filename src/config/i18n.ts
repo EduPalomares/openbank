@@ -24,8 +24,7 @@ i18n
     },
     backend: {
       loadPath:
-        (process.env.NODE_ENV === 'production' ? window.location.origin + '/' : '') +
-        'assets/locales/{{lng}}/{{ns}}.json'
+        (process.env.NODE_ENV === 'production' ? window.location.origin + '/' : '') + 'assets/locales/es/{{ns}}.json'
     }
   });
 
