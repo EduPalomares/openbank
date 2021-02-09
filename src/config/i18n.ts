@@ -17,13 +17,15 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: LANG_DEFAULT,
-    debug: true,
+    debug: false,
     nsSeparator: '->',
     react: {
       useSuspense: true
     },
     backend: {
-      loadPath: 'assets/locales/{{lng}}/{{ns}}.json'
+      loadPath:
+        (process.env.NODE_ENV === 'production' ? window.location.origin + '/' : '') +
+        'assets/locales/{{lng}}/{{ns}}.json'
     }
   });
 
