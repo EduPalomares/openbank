@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/openbank/static/css/main.22d1c316.chunk.css",
-    "main.js": "/openbank/static/js/main.bb7cb3cc.chunk.js",
-    "main.js.map": "/openbank/static/js/main.bb7cb3cc.chunk.js.map",
+    "main.js": "/openbank/static/js/main.60bd6fe3.chunk.js",
+    "main.js.map": "/openbank/static/js/main.60bd6fe3.chunk.js.map",
     "runtime-main.js": "/openbank/static/js/runtime-main.d70a286f.js",
     "runtime-main.js.map": "/openbank/static/js/runtime-main.d70a286f.js.map",
     "static/js/2.81c3eb24.chunk.js": "/openbank/static/js/2.81c3eb24.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.d70a286f.js",
     "static/js/2.81c3eb24.chunk.js",
     "static/css/main.22d1c316.chunk.css",
-    "static/js/main.bb7cb3cc.chunk.js"
+    "static/js/main.60bd6fe3.chunk.js"
   ]
 }
