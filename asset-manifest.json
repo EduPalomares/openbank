@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/openbank/static/css/main.22d1c316.chunk.css",
+    "main.js": "/openbank/static/js/main.d8bb7f25.chunk.js",
+    "main.js.map": "/openbank/static/js/main.d8bb7f25.chunk.js.map",
+    "runtime-main.js": "/openbank/static/js/runtime-main.d70a286f.js",
+    "runtime-main.js.map": "/openbank/static/js/runtime-main.d70a286f.js.map",
+    "static/js/2.81c3eb24.chunk.js": "/openbank/static/js/2.81c3eb24.chunk.js",
+    "static/js/2.81c3eb24.chunk.js.map": "/openbank/static/js/2.81c3eb24.chunk.js.map",
+    "static/js/3.fb172fe8.chunk.js": "/openbank/static/js/3.fb172fe8.chunk.js",
+    "static/js/3.fb172fe8.chunk.js.map": "/openbank/static/js/3.fb172fe8.chunk.js.map",
+    "index.html": "/openbank/index.html",
+    "static/css/main.22d1c316.chunk.css.map": "/openbank/static/css/main.22d1c316.chunk.css.map",
+    "static/js/2.81c3eb24.chunk.js.LICENSE.txt": "/openbank/static/js/2.81c3eb24.chunk.js.LICENSE.txt",
+    "static/media/error.f1095647.png": "/openbank/static/media/error.f1095647.png",
+    "static/media/product-information-1.30634726.jpg": "/openbank/static/media/product-information-1.30634726.jpg",
+    "static/media/spinner.3978ebfc.svg": "/openbank/static/media/spinner.3978ebfc.svg",
+    "static/media/step1.e337bb23.png": "/openbank/static/media/step1.e337bb23.png",
+    "static/media/step2.c883a046.png": "/openbank/static/media/step2.c883a046.png",
+    "static/media/success.95e7fa8e.png": "/openbank/static/media/success.95e7fa8e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d70a286f.js",
+    "static/js/2.81c3eb24.chunk.js",
+    "static/css/main.22d1c316.chunk.css",
+    "static/js/main.d8bb7f25.chunk.js"
+  ]
+}
