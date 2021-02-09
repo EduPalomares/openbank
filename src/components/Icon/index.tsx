@@ -33,11 +33,21 @@ const useStyles = createUseStyles(() => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'auto 100%',
     backgroundPosition: 'center',
+    '&.white': {
+      filter: 'invert(96%) sepia(29%) saturate(0%) hue-rotate(290deg) brightness(113%) contrast(100%)'
+    },
+    '&.light-blue': {
+      filter: 'invert(66%) sepia(77%) saturate(435%) hue-rotate(150deg) brightness(91%) contrast(92%);'
+    },
     '&.primary': {
       filter: 'invert(22%) sepia(65%) saturate(7496%) hue-rotate(334deg) brightness(96%) contrast(117%)'
     },
     '&.secondary': {
       filter: 'invert(12%) sepia(20%) saturate(6880%) hue-rotate(181deg) brightness(95%) contrast(102%)'
+    },
+    '&.dropdown-right': {
+      marginTop: '1px',
+      transform: 'rotate(-90deg)'
     }
   }
 }));

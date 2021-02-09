@@ -1,10 +1,10 @@
-import { array, bool, func, object, oneOf, string, InferProps } from 'prop-types';
+import { bool, func, object, oneOf, string, InferProps } from 'prop-types';
 import { createUseStyles, useTheme } from 'react-jss';
 import { Theme } from 'styles/theme';
 
 const propTypes = {
   /** React children */
-  children: array,
+  children: object,
   /** Aditional Classes */
   className: string,
   /** Disabled */
@@ -30,6 +30,8 @@ type Props = InferProps<typeof propTypes>;
 
 const useStyles = createUseStyles((theme: Theme) => ({
   button: {
+    display: 'flex',
+    alignItems: 'center',
     padding: '15px 22px',
     border: '0',
     borderRadius: '5px',

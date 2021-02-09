@@ -1,18 +1,40 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+import { FormType } from 'models/Form';
 
-const initialState = {
+interface PasswordState {
+  step: number;
+  consent: boolean;
+  password?: FormType;
+}
+
+const initialState: PasswordState = {
+  step: 1,
   consent: false,
-  password: ''
+  password: {
+    password1: '',
+    password2: '',
+    clue: ''
+  }
 };
 
-const Context = createContext<typeof initialState>(initialState);
+const Context = createContext<PasswordState>(initialState);
 
-type Action = { type: 'set_consent'; payload: boolean };
+type Action =
+  | { type: 'set_consent'; payload: boolean }
+  | { type: 'set_step'; payload: number }
+  | { type: 'set_password'; payload: object }
+  | { type: 'reset'; payload: object };
 
-const reducer = (state: typeof initialState, action: Action) => {
+const reducer = (state: PasswordState, action: Action) => {
   switch (action.type) {
+    case 'set_step':
+      return { ...state, step: action.payload };
     case 'set_consent':
       return { ...state, consent: action.payload };
+    case 'set_password':
+      return { ...state, password: action.payload };
+    case 'reset':
+      return initialState;
     default:
       throw new Error('Unexpected action');
   }
@@ -24,6 +46,8 @@ export const usePassword = () => {
 };
 
 export const PasswordProvider = ({ children }: { children: React.ReactElement }) => {
-  const contextValue: any = useReducer(reducer, initialState);
+  // @ts-ignore
+  const contextValue = useReducer(reducer, initialState);
+  // @ts-ignore
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };

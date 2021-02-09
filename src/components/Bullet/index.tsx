@@ -1,9 +1,13 @@
-import { bool, string, InferProps } from 'prop-types';
+import { bool, object, InferProps } from 'prop-types';
 import { createUseStyles, useTheme } from 'react-jss';
 import { Theme } from 'styles/theme';
 import triangle from 'assets/img/triangle.png';
 
-const propTypes = { active: bool, text: string.isRequired };
+const propTypes = {
+  active: bool,
+  children: object,
+  previous: bool
+};
 
 const defaultPropTypes = { active: false };
 
@@ -14,6 +18,7 @@ const useStyles = createUseStyles((theme: Theme) => ({
     height: '100%',
     display: 'flex',
     alignItems: 'center',
+    position: 'relative',
 
     '& span': {
       width: '27px',
@@ -29,11 +34,13 @@ const useStyles = createUseStyles((theme: Theme) => ({
       fontSize: '1.3rem'
     },
 
+    '&.previous span': { backgroundColor: theme.primary },
+
     '&.active span': {
       width: '35px',
       height: '35px',
       backgroundColor: theme.secondary,
-      boxShadow: '0px 0px 15px #888888;'
+      boxShadow: '0px 0px 6px #888888;'
     },
 
     '&.active:after': {
@@ -49,15 +56,13 @@ const useStyles = createUseStyles((theme: Theme) => ({
 }));
 
 const Bullet = (props: Props) => {
-  const { active, text } = props;
+  const { active, children, previous } = props;
   const theme = useTheme();
   const css = useStyles({ theme });
 
   return (
     <>
-      <div className={`${css.bullet} ${active ? 'active' : ''}`}>
-        <span>{text}</span>
-      </div>
+      <div className={`${css.bullet} ${active ? 'active' : ''} ${previous ? 'previous' : ''}`}>{children}</div>
     </>
   );
 };

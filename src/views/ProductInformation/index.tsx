@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { usePassword } from 'contexts/password';
 import Button from 'components/Button';
+import Icon from 'components/Icon';
 import img1 from 'assets/img/product-information-1.jpg';
 import img2 from 'assets/img/product-information-2.jpg';
 
@@ -10,6 +12,15 @@ const ProductInformation = () => {
   const toggleConsent = () => {
     dispatch({ type: 'set_consent', payload: !password.consent });
   };
+
+  const handleReset = () => {
+    dispatch({ type: 'reset' });
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    dispatch({ type: 'set_step', payload: 1 });
+  }, [dispatch]);
 
   return (
     <>
@@ -22,8 +33,8 @@ const ProductInformation = () => {
           </p>
 
           <div className="flex v-center">
-            <input type="checkbox" name="consent" onClick={toggleConsent} /> Declaro que soy mayor de edad y acepto que
-            traten mis datos según la política de protección de datos.
+            <input defaultChecked={password.consent} type="checkbox" name="consent" onClick={toggleConsent} /> Declaro
+            que soy mayor de edad y acepto que traten mis datos según la política de protección de datos.
           </div>
           <br />
 
@@ -60,9 +71,12 @@ const ProductInformation = () => {
         </div>
 
         <div className="actions">
-          <Button name="Cancelar" variant="minimun" />
-          <NavLink to="/formulario">
-            <Button name="Siguiente" disabled={!password.consent} />
+          <Button name="Cancelar" variant="minimun" onClick={handleReset} />
+
+          <NavLink to={password.consent ? '/formulario' : ''}>
+            <Button name="Siguiente" disabled={!password.consent}>
+              <Icon name="dropdown" className="white dropdown-right" />
+            </Button>
           </NavLink>
         </div>
       </main>
