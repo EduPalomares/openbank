@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { usePassword } from 'contexts/password';
 import { submitForm } from 'services/api';
 import Icon from 'components/Icon';
@@ -7,41 +8,51 @@ import spinner from 'assets/img/spinner.svg';
 import imgOK from 'assets/img/ok.jpg';
 import imgKO from 'assets/img/error.jpg';
 
-const Spinner = () => (
-  <div className="text-center">
-    <br />
-    <img src={spinner} alt="Cargando" style={{ maxWidth: '100px' }} />
-    <p>Por favor espere...</p>
-    <br />
-  </div>
-);
+const Spinner = () => {
+  const { t } = useTranslation();
 
-const OK = () => (
-  <>
-    <div className="content">
-      <div className="flex">
-        <div className="image">
-          <img src={imgOK} alt="OK" />
-        </div>
-        <div>
-          <h3>¡Tu Password Manager ya está creado!</h3>
-          <p>Ya hemos terminado de crear tu password manager y podrás usarlo a partir de este momento.</p>
+  return (
+    <div className="text-center">
+      <br />
+      <img src={spinner} alt="Cargando" style={{ maxWidth: '100px' }} />
+      <p>{t('feedback.por_favor')}</p>
+      <br />
+    </div>
+  );
+};
+
+const OK = () => {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <div className="content">
+        <div className="flex">
+          <div className="image">
+            <img src={imgOK} alt="OK" />
+          </div>
+          <div>
+            <h3>{t('feedback.tu_password')}</h3>
+            <p>{t('feedback.por_favor')}</p>
+            <p>{t('feedback.ya_hemos')}</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div className="actions">
-      <span></span>
-      <div className="flex v-center semibold" style={{ color: '#ff0049' }}>
-        Acceder
-        <Icon name="dropdown" className="primary dropdown-right" />
+      <div className="actions">
+        <span></span>
+        <div className="flex v-center semibold" style={{ color: '#ff0049' }}>
+          {t('general.acceder')}
+          <Icon name="dropdown" className="primary dropdown-right" />
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 const KO = () => {
   const history = useHistory();
+  const { t } = useTranslation();
   const [, dispatch]: any = usePassword();
 
   const handleReset = () => {
@@ -57,8 +68,8 @@ const KO = () => {
             <img src={imgKO} alt="KO" />
           </div>
           <div>
-            <h3>Ha habido un error</h3>
-            <p>No hemos podido modificar tu Contraseña Maestra. Inténtalo más tarde.</p>
+            <h3>{t('feedback.ha_habido')}</h3>
+            <p>{t('feedback.no_hemos')}</p>
           </div>
         </div>
       </div>
@@ -67,7 +78,7 @@ const KO = () => {
         <span></span>
 
         <div className="flex v-center semibold" style={{ color: '#ff0049', cursor: 'pointer' }} onClick={handleReset}>
-          Volver a Password Manager
+          {t('general.volver_a_password')}
           <Icon name="dropdown" className="primary dropdown-right" />
         </div>
       </div>

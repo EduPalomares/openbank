@@ -1,3 +1,6 @@
 {
-
+  "es": {
+    "aa": "bb",
+    "product": { "cuenta_corriente": "Cuenta Corriente OpenClose" }
+  }
 }

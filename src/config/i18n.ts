@@ -1,9 +1,13 @@
 import i18n from 'i18next';
+import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import { LANG_DEFAULT } from './config';
 
 i18n
+  // detect user language
+  // learn more: https://github.com/i18next/i18next-browser-languageDetector
+  .use(Backend)
   // detect user language
   // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
@@ -13,13 +17,13 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: LANG_DEFAULT,
-    debug: false,
+    debug: true,
     nsSeparator: '->',
     react: {
       useSuspense: true
     },
     backend: {
-      loadPath: '/locale/{{lng}}.json'
+      loadPath: 'assets/locales/{{lng}}/{{ns}}.json'
     }
   });
 

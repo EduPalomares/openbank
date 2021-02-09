@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { usePassword } from 'contexts/password';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
@@ -8,6 +9,7 @@ import img2 from 'assets/img/product-information-2.jpg';
 
 const ProductInformation = () => {
   const [password, dispatch]: any = usePassword();
+  const { t } = useTranslation();
 
   const toggleConsent = () => {
     dispatch({ type: 'set_consent', payload: !password.consent });
@@ -26,55 +28,46 @@ const ProductInformation = () => {
     <>
       <main className="v-product-information">
         <div className="content">
-          <h1>Cuenta Corriente OpenClose</h1>
+          <h1>{t('product.cuenta_corriente')}</h1>
           <p>
-            Bienvenido a la contratación de la "Cuenta corriente OpenClose". <br />
-            En los siguientes pasos le vamos a demandar algunos datos necesarios para completar el proceso. <br />
+            {t('product.bienvenido_a_la')}
+            <br />
+            {t('product.en_los_siguientes')}
           </p>
 
           <div className="flex v-center">
-            <input defaultChecked={password.consent} type="checkbox" name="consent" onClick={toggleConsent} /> Declaro
-            que soy mayor de edad y acepto que traten mis datos según la política de protección de datos.
+            <input defaultChecked={password.consent} type="checkbox" name="consent" onClick={toggleConsent} />
+            {t('product.declaro_que')}
           </div>
           <br />
 
-          <h2>Crea tu Password Manager</h2>
+          <h2>{t('product.crea_tu')}</h2>
           <div className="introduction">
             <div>
               <img src={img1} alt="Guarda aquí todas tus contraseñas" />
-              <p>
-                Guarda aquí todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las
-                aplicaciones no protegidas.
-              </p>
+              <p>{t('product.guardar_aqui')}</p>
             </div>
 
             <div>
               <img src={img2} alt="Crea tu clave maestra" />
-              <p>Crea tu clave maestra: solo tú podrás acceder a tus secretos con ella.</p>
+              <p>{t('product.crea_tu_clave')}</p>
             </div>
           </div>
 
-          <h3>Cómo funciona</h3>
+          <h3>{t('product.como_funciona')}</h3>
 
-          <p>
-            En primer lugar, debes crear una contraseña diferente para sus pertenencias electrónicas. No podrás
-            recuperar tu contraseña, así que recuérdala bien.
-          </p>
+          <p>{t('product.en_primer_lugar')}</p>
 
           <br />
-          <h3>Qué datos puedes guardar</h3>
-
-          <p>
-            Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de
-            tus dispositivos o cualquier información que necesites tener en un lugar seguro.
-          </p>
+          <h3>{t('product.que_datos')}</h3>
+          <p>{t('product.por_ejemplo')}</p>
         </div>
 
         <div className="actions">
-          <Button name="Cancelar" variant="minimun" onClick={handleReset} />
+          <Button name={t('general.cancelar')} variant="minimun" onClick={handleReset} />
 
           <NavLink to={password.consent ? '/formulario' : ''}>
-            <Button name="Siguiente" disabled={!password.consent}>
+            <Button name={t('general.siguiente')} disabled={!password.consent}>
               <Icon name="dropdown" className="white dropdown-right" />
             </Button>
           </NavLink>

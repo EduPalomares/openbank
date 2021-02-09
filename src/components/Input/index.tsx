@@ -1,5 +1,5 @@
 // import React, { useEffect } from 'react';
-import { func, object, string, InferProps } from 'prop-types';
+import { func, number, object, string, InferProps } from 'prop-types';
 import { createUseStyles } from 'react-jss';
 
 const propTypes = {
@@ -7,6 +7,8 @@ const propTypes = {
   className: string,
   /** React children */
   children: object,
+  /** Max Length */
+  maxLength: number,
   /** Name */
   name: string.isRequired,
   /** Handler */
@@ -35,7 +37,7 @@ const useStyles = createUseStyles(() => ({
 }));
 
 const Input = (props: Props) => {
-  const { className, name, onChange, placeholder, style, type } = props;
+  const { className, name, maxLength, onChange, placeholder, style, type } = props;
   const css = useStyles();
 
   return (
@@ -46,6 +48,7 @@ const Input = (props: Props) => {
         name={name}
         {...(onChange && { onChange: onChange })}
         {...(placeholder && { placeholder })}
+        {...(maxLength && { maxLength })}
         {...(style && { style })}
       />
     </>
