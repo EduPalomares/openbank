@@ -27,7 +27,7 @@ const OK = () => {
   return (
     <>
       <div className="content">
-        <div className="flex">
+        <div className="flex nowrap">
           <div className="image">
             <img src={imgOK} alt="OK" />
           </div>
@@ -63,7 +63,7 @@ const KO = () => {
   return (
     <>
       <div className="content">
-        <div className="flex">
+        <div className="flex nowrap">
           <div className="image">
             <img src={imgKO} alt="KO" />
           </div>

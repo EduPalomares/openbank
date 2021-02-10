@@ -29,15 +29,20 @@ const ProductInformation = () => {
       <main className="v-product-information">
         <div className="content">
           <h1>{t('product.cuenta_corriente')}</h1>
+
+          <br />
+
           <p>
             {t('product.bienvenido_a_la')}
             <br />
             {t('product.en_los_siguientes')}
           </p>
+          <br />
 
-          <div className="flex v-center">
+          <div className="flex nowrap check">
             <input defaultChecked={password.consent} type="checkbox" name="consent" onClick={toggleConsent} />
-            {t('product.declaro_que')}
+
+            <p>{t('product.declaro_que')}</p>
           </div>
           <br />
 
