@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
-import Bullet from './index';
+import { render, screen } from 'helpers/utils/test-utils';
+import Bullet from '../Bullet/index';
 
 it('renders Bullet', () => {
   render(

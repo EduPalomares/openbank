@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePassword } from 'contexts/password';
 import { validPassword } from 'helpers/utils/validPassword';
@@ -25,6 +25,11 @@ const Form = () => {
 
   // const pass1Ref = useRef<HTMLElement | null>(null);
   // const pass2Ref = useRef<HTMLElement | null>(null);
+
+  const handleReset = () => {
+    dispatch({ type: 'reset' });
+    history.push('/');
+  };
 
   const handleSubmitForm = () => {
     dispatch({ type: 'set_password', payload: state });
@@ -103,9 +108,7 @@ const Form = () => {
         </div>
 
         <div className="actions">
-          <NavLink to="/">
-            <Button name={t('general.cancelar')} variant="minimun" />
-          </NavLink>
+          <Button name={t('general.cancelar')} variant="minimun" onClick={handleReset} />
 
           <Button
             name={t('general.siguiente')}

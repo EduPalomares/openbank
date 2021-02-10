@@ -23,8 +23,7 @@ i18n
       useSuspense: true
     },
     backend: {
-      loadPath:
-        (process.env.NODE_ENV === 'production' ? window.location.origin + '/' : '') + 'assets/locales/es/{{ns}}.json'
+      loadPath: (process.env.NODE_ENV === 'production' ? window.location.href : '') + 'assets/locales/es/{{ns}}.json'
     }
   });
 

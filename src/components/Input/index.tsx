@@ -18,7 +18,9 @@ const propTypes = {
   /** Input Style */
   style: object,
   /** Type */
-  type: string.isRequired
+  type: string.isRequired,
+  /** Value */
+  value: string
 };
 
 const defaultPropTypes = {
@@ -37,13 +39,14 @@ const useStyles = createUseStyles(() => ({
 }));
 
 const Input = (props: Props) => {
-  const { className, name, maxLength, onChange, placeholder, style, type } = props;
+  const { className, name, maxLength, onChange, placeholder, style, type, value } = props;
   const css = useStyles();
 
   return (
     <>
       <input
         className={`${css.input} ${className ? className : ''}`}
+        defaultValue={value ? value : ''}
         type={type}
         name={name}
         {...(onChange && { onChange: onChange })}

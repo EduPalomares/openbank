@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePassword } from 'contexts/password';
@@ -87,13 +87,19 @@ const KO = () => {
 };
 
 const Feedback = () => {
+  const history = useHistory();
   const [password, dispatch]: any = usePassword();
   const [apiResponse, setApiResponse] = useState<number | null>();
 
-  useEffect(() => {
-    async function submit() {
-      const { password1, password2, clue } = password.password;
+  const resetApp = useCallback(() => {
+    dispatch({ type: 'reset' });
+    history.push('/');
+  }, [dispatch, history]);
 
+  useEffect(() => {
+    const { password1, password2, clue } = password.password;
+
+    async function submit() {
       try {
         await submitForm(password1, password2, clue);
         setApiResponse(200);
@@ -103,8 +109,13 @@ const Feedback = () => {
     }
 
     dispatch({ type: 'set_step', payload: 3 });
-    submit();
-  }, [dispatch, password.password]);
+
+    if (password.consent && password1) {
+      submit();
+    } else {
+      resetApp();
+    }
+  }, [dispatch, password.password, resetApp, password.consent]);
 
   return apiResponse ? (
     <>

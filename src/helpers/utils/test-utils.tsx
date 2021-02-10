@@ -1,22 +1,22 @@
-// import React from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
-// import { ThemeProvider } from 'react-jss';
-// import { theme } from 'styles/theme';
+import { ThemeProvider } from 'react-jss';
+import { theme } from '../../styles/theme';
 
-//  import { TranslationProvider } from 'my-i18n-lib';
-// import defaultStrings from 'i18n/en-x-default';
+// import { TranslationProvider } from 'my-i18n-lib';
+// import defaultStrings from process.env.PUBLIC_URL + 'assets/locales/es/translation.json';
 
-// const AllTheProviders = ({ children }) => {
-//   return (
-//     <ThemeProvider theme="light">
-//       <TranslationProvider messages={defaultStrings}>{children}</TranslationProvider>
-//     </ThemeProvider>
-//   );
-// };
+const AllTheProviders = ({ children }: { children: React.ReactElement }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      {/* <TranslationProvider messages={defaultStrings}> */}
+      {children}
+      {/* </TranslationProvider> */}
+    </ThemeProvider>
+  );
+};
 
-// const customRender = (ui, options) => render(ui, { wrapper: AllTheProviders, ...options });
+const customRender = (ui: any, options: any) => render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from '@testing-library/react';
-
-// // override render method
-// export { customRender as render };
+export { customRender as render };
