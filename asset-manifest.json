@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/openbank/static/css/main.22d1c316.chunk.css",
-    "main.js": "/openbank/static/js/main.60bd6fe3.chunk.js",
-    "main.js.map": "/openbank/static/js/main.60bd6fe3.chunk.js.map",
-    "runtime-main.js": "/openbank/static/js/runtime-main.d70a286f.js",
-    "runtime-main.js.map": "/openbank/static/js/runtime-main.d70a286f.js.map",
+    "main.js": "/openbank/static/js/main.d4f0d7ed.chunk.js",
+    "main.js.map": "/openbank/static/js/main.d4f0d7ed.chunk.js.map",
+    "runtime-main.js": "/openbank/static/js/runtime-main.98e2427c.js",
+    "runtime-main.js.map": "/openbank/static/js/runtime-main.98e2427c.js.map",
     "static/js/2.81c3eb24.chunk.js": "/openbank/static/js/2.81c3eb24.chunk.js",
     "static/js/2.81c3eb24.chunk.js.map": "/openbank/static/js/2.81c3eb24.chunk.js.map",
-    "static/js/3.fb172fe8.chunk.js": "/openbank/static/js/3.fb172fe8.chunk.js",
-    "static/js/3.fb172fe8.chunk.js.map": "/openbank/static/js/3.fb172fe8.chunk.js.map",
+    "static/js/3.5dc7776d.chunk.js": "/openbank/static/js/3.5dc7776d.chunk.js",
+    "static/js/3.5dc7776d.chunk.js.map": "/openbank/static/js/3.5dc7776d.chunk.js.map",
     "index.html": "/openbank/index.html",
     "static/css/main.22d1c316.chunk.css.map": "/openbank/static/css/main.22d1c316.chunk.css.map",
     "static/js/2.81c3eb24.chunk.js.LICENSE.txt": "/openbank/static/js/2.81c3eb24.chunk.js.LICENSE.txt",
@@ -20,9 +20,9 @@
     "static/media/success.95e7fa8e.png": "/openbank/static/media/success.95e7fa8e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.d70a286f.js",
+    "static/js/runtime-main.98e2427c.js",
     "static/js/2.81c3eb24.chunk.js",
     "static/css/main.22d1c316.chunk.css",
-    "static/js/main.60bd6fe3.chunk.js"
+    "static/js/main.d4f0d7ed.chunk.js"
   ]
 }
