@@ -23,9 +23,6 @@ const Form = () => {
   const [password, dispatch]: any = usePassword();
   const [state, handleChange]: any = useReducer(reducer, initialForm);
 
-  // const pass1Ref = useRef<HTMLElement | null>(null);
-  // const pass2Ref = useRef<HTMLElement | null>(null);
-
   const handleReset = () => {
     dispatch({ type: 'reset' });
     history.push('/');
@@ -54,7 +51,7 @@ const Form = () => {
           <div className="flex passwords">
             <div className="form-element">
               <label>{t('form.crea_tu_contraseña')}</label>
-              <Input //ref={pass1Ref}
+              <Input
                 type="password"
                 name="password1"
                 onChange={handleChange}
@@ -63,20 +60,11 @@ const Form = () => {
               <div className="error">
                 {state.password1 && !validPassword(state.password1) ? t('form.min_8_max') : ' '}
               </div>
-              {/* <Icon
-                name="eye"
-                onClick={() => {
-                  // pass1Ref?.current && pass1Ref?.current?.setAttribute('type', 'text');
-                  //console.log(pass1Ref?.current); // TODO:
-                }}
-                size={28}
-                style={{ position: 'absolute', top: '34px', right: '10px' }}
-              /> */}
             </div>
 
             <div className="form-element">
               <label>{t('form.repite_tu_maestra')}</label>
-              <Input //ref={pass2Ref}
+              <Input
                 type="password"
                 name="password2"
                 onChange={handleChange}
